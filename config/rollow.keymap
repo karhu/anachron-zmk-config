@@ -216,7 +216,7 @@ ZMK_BEHAVIOR(dot_morph_cancel, mod_morph,
 
     keymap {
         compatible = "zmk,keymap";
-        default_layer {
+        default_layer { // ColemakDHm
             bindings = <
             &kp Q     &kp W     &kp F     &kp P     &kp B     &kp J       &kp L     &kp U        &kp Y      &kp APOS 
             H_LGUI(A) H_LALT(R) H_LCTL(S) H_LSFT(T) &kp G     &kp M       H_RSFT(N) H_RCTL(E)    H_RALT(I)  H_RGUI(O) 
