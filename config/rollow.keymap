@@ -53,7 +53,7 @@ ZMK_CONDITIONAL_LAYER(NUM SYM, UTIL)
 /* ---------------------------- special behaviors --------------------------- */
 // Alt+Tab swapper, requires PR #1366
 ZMK_BEHAVIOR(swapper, tri_state,
-    bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
+    bindings = <&kt LALT>, <&kp TAB>, <&kt LGUI>;
     ignored-key-positions = <LM1>; // shift-alt-tab 
 )
 
