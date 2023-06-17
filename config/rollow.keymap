@@ -228,7 +228,7 @@ ZMK_BEHAVIOR(dot_morph_cancel, mod_morph,
         num_layer {
             bindings = <
             &swapper  &kp HASH  &kp DLLR   &kp PRCNT  &kp CARET   &kp PLUS  &kp N6     &kp N7     &kp N8     &kp ASTRK 
-            SK_LCTL   SK_LALT   SK(LGUI)   SK(LSFT)   SMRT_FUN    &kp EQUAL H_RSFT(N0) H_RGUI(N1) H_RALT(N2) H_RCTL(N9) 
+            SK(LCTL)   SK_LALT   SK_LGUI   SK(LSFT)   SMRT_FUN    &kp EQUAL H_RSFT(N0) H_RGUI(N1) H_RALT(N2) H_RCTL(N9) 
             S_UNDO    S_CUT     S_COPY     S_PASTE    S_REDO      &kp MINUS &kp N3     &kp N4     &kp N5     &lt BT FSLH 
                                 XXX        ___        &kp SPACE   &kp SPACE ___        XXX 
             >;
@@ -236,10 +236,10 @@ ZMK_BEHAVIOR(dot_morph_cancel, mod_morph,
         };
         sym_layer {
             bindings = <
-            &kp TILDE     &kp UNDER   &kp LBKT  &kp RBKT  &kp PIPE      &kp HOME    &kp PG_DN  &kp PG_UP  &kp END    XXX
-            H_LCTL(GRAVE) H_LALT(AT)  &kp LPAR  &kp RPAR  H_LCTL(AMPS)  &kp LEFT    &kp DOWN   &kp UP     &kp RIGHT  &kp ENTER 
-            &kp BSLH      &kp LT      &kp LBRC  &kp RBRC  &kp GT        &key_repeat &kp BSPC   &kp DEL    &kp TAB    &kp ESC 
-                                      ___       ___       XXX         ___         ___        XXX 
+            &kp TILDE     &kp UNDER   &kp LBKT      &kp RBKT  &kp PIPE      &kp HOME    &kp PG_DN  &kp PG_UP  &kp END    XXX
+            H_LCTL(GRAVE) H_LALT(AT)  H_LGUI(LPAR)  &kp RPAR  &kp AMPS      &kp LEFT    &kp DOWN   &kp UP     &kp RIGHT  &kp ENTER 
+            &kp BSLH      &kp LT      &kp LBRC      &kp RBRC  &kp GT        &key_repeat &kp BSPC   &kp DEL    &kp TAB    &kp ESC 
+                                      ___           ___       XXX           ___         ___        XXX 
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp UP DOWN>;
         };
@@ -247,7 +247,7 @@ ZMK_BEHAVIOR(dot_morph_cancel, mod_morph,
         util_layer {
             bindings = <
             &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_CLR  &dyn_macro RECORD  &kp HOME     &kp PG_DN  &kp PG_UP   &kp END    XXX
-            SK_LCTL      SK_LALT      SK(LGUI)     SK(LSFT)    &dyn_macro PLAY    &kp LEFT     &kp DOWN   &kp UP      &kp RIGHT  &kp ENTER 
+            SK(LCTL)      SK_LALT      SK_LGUI     SK(LSFT)    &dyn_macro PLAY    &kp LEFT     &kp DOWN   &kp UP      &kp RIGHT  &kp ENTER 
             S_UNDO       S_CUT        S_COPY       S_PASTE     S_REDO             &key_repeat  &kp BSPC   &kp DEL     &kp TAB    &kp ESC 
                                       XXX          ___         ___                ___          ___        XXX 
             >;
@@ -257,7 +257,7 @@ ZMK_BEHAVIOR(dot_morph_cancel, mod_morph,
         fun_layer {
             bindings = <
             ___       ___       ___        ___        ___    &kp F12  &kp F6     &kp F7  &kp F8  &kp INSERT
-            SK_LCTL   SK_LALT   SK(LGUI)   SK(LSFT)   ___    &kp F11  &kp PSCRN  &kp F1  &kp F2  &kp F9
+            SK(LCTL)   SK_LALT   SK_LGUI   SK(LSFT)   ___    &kp F11  &kp PSCRN  &kp F1  &kp F2  &kp F9
             ___       ___       ___        ___        ___    &kp F10  &kp F3     &kp F4  &kp F5  &kp CAPS
                                 ___        ___        ___    ___      ___        ___ 
             >;
