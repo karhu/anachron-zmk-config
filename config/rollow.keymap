@@ -236,8 +236,8 @@ ZMK_BEHAVIOR(dot_morph_cancel, mod_morph,
         };
         sym_layer {
             bindings = <
-            &kp TILDE     &kp UNDER   &kp LBKT      &kp RBKT  &kp PIPE      &kp HOME    &kp PG_DN  &kp PG_UP  &kp END    XXX
-            H_LCTL(GRAVE) H_LALT(AT)  H_LGUI(LPAR)  &kp RPAR  &kp AMPS      &kp LEFT    &kp DOWN   &kp UP     &kp RIGHT  &kp ENTER 
+            &kp TILDE     &kp UNDER   &kp LBKT      &kp RBKT  &kp PIPE      &kp HOME    &kp PG_UP  &kp UP     &kp PG_DN  &kp END
+            H_LCTL(GRAVE) H_LALT(AT)  H_LGUI(LPAR)  &kp RPAR  &kp AMPS      XXX         &kp LEFT   &kp DOWN   &kp RIGHT  &kp ENTER 
             &kp BSLH      &kp LT      &kp LBRC      &kp RBRC  &kp GT        &key_repeat &kp BSPC   &kp DEL    &kp TAB    &kp ESC 
                                       ___           ___       XXX           ___         ___        XXX 
             >;
@@ -246,9 +246,9 @@ ZMK_BEHAVIOR(dot_morph_cancel, mod_morph,
  
         util_layer {
             bindings = <
-            &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_CLR  &dyn_macro RECORD  &kp HOME     &kp PG_DN  &kp PG_UP   &kp END    XXX
-            SK(LCTL)      SK_LALT      SK_LGUI     SK(LSFT)    &dyn_macro PLAY    &kp LEFT     &kp DOWN   &kp UP      &kp RIGHT  &kp ENTER 
-            S_UNDO       S_CUT        S_COPY       S_PASTE     S_REDO             &key_repeat  &kp BSPC   &kp DEL     &kp TAB    &kp ESC 
+            &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_CLR  &dyn_macro RECORD  &kp HOME     &kp PG_UP  &kp UP    &kp PG_DN  &kp END
+            SK(LCTL)      SK_LALT      SK_LGUI     SK(LSFT)    &dyn_macro PLAY    XXX          &kp LEFT   &kp DOWN  &kp RIGHT  &kp ENTER 
+            S_UNDO       S_CUT        S_COPY       S_PASTE     S_REDO             &key_repeat  &kp BSPC   &kp DEL   &kp TAB    &kp ESC 
                                       XXX          ___         ___                ___          ___        XXX 
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp UP DOWN>;
@@ -366,13 +366,13 @@ VERTICAL_COMBO(LM2 LB2, S, C)
 // right thumb combos with right hand SYM layer
 #define SYM_THUMB_COMBO(keypos, bindings) THUMB_LAYER_COMBO(SYM, RH1, BASE NUM, keypos, bindings)
 SYM_THUMB_COMBO(RT0, &kp HOME)
-SYM_THUMB_COMBO(RT1, &kp PG_DN)
-SYM_THUMB_COMBO(RT2, &kp PG_UP)
-SYM_THUMB_COMBO(RT3, &kp END)
-// SYM_THUMB_COMBO(RT4, XXX)
-SYM_THUMB_COMBO(RM0, &kp LEFT)
-SYM_THUMB_COMBO(RM1, &kp DOWN)
-SYM_THUMB_COMBO(RM2, &kp UP)
+SYM_THUMB_COMBO(RT1, &kp PG_UP)
+SYM_THUMB_COMBO(RT2, &kp UP)
+SYM_THUMB_COMBO(RT3, &kp PG_DN)
+SYM_THUMB_COMBO(RT4, &kp END)
+//SYM_THUMB_COMBO(RM0, XXX)
+SYM_THUMB_COMBO(RM1, &kp LEFT)
+SYM_THUMB_COMBO(RM2, &kp DOWN)
 SYM_THUMB_COMBO(RM3, &kp RIGHT)
 SYM_THUMB_COMBO(RM4, &kp ENTER)
 SYM_THUMB_COMBO(RB0, &key_repeat) 
