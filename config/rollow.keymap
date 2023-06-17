@@ -19,11 +19,11 @@
 #define FUN 4
 #define BT 5
 
-#define S_UNDO &kp C_AC_UNDO
-#define S_CUT &kp C_AC_CUT
-#define S_COPY &kp C_AC_COPY
-#define S_PASTE &kp C_AC_PASTE
-#define S_REDO &kp C_AC_REDO
+#define S_UNDO &kp LG(Z)
+#define S_CUT &kp LG(X)
+#define S_COPY &kp LG(C)
+#define S_PASTE &kp LG(V)
+#define S_REDO &kp LS(LG(Z))
 
 /* ------------------------ general config ----------------------- */
 // smart-layer config
