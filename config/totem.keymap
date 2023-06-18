@@ -141,6 +141,7 @@ ZMK_BEHAVIOR(sk_mod, hold_tap,
     hold-while-undecided; // requires pr
 )
 // for GUI/ALT, we don't want to trigger a tap, so we disable hold while undecided
+// TODO: revisit this as the standard SK(mod) may work fine for my use case
 #define SK_LGUI &sk_mod_gui LGUI LGUI 
 #define SK_LALT &sk_mod_gui LALT LALT 
 ZMK_BEHAVIOR(sk_mod_gui, hold_tap,
