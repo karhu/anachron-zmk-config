@@ -223,7 +223,6 @@ ZMK_BEHAVIOR(dot_morph_cancel, mod_morph,
             &kp Z     &kp X     &kp C     &kp D     &kp V     &kp K       &kp H     &comma_morph &dot_morph &qmark_morph
                                 &kp C_MUTE SMRT_NUM SK_SHFT   &spc_morph  SMRT_SYM  XXX 
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN  &inc_dec_kp UP DOWN>;
         };
         num_layer {
             bindings = <
@@ -232,7 +231,6 @@ ZMK_BEHAVIOR(dot_morph_cancel, mod_morph,
             S_UNDO    S_CUT     S_COPY     S_PASTE    S_REDO      &kp MINUS &kp N3     &kp N4     &kp N5     &lt BT FSLH 
                                 XXX        ___        &kp SPACE   &kp SPACE ___        XXX 
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp UP DOWN>;
         };
         sym_layer {
             bindings = <
@@ -241,7 +239,6 @@ ZMK_BEHAVIOR(dot_morph_cancel, mod_morph,
             &kp BSLH      &kp LT      &kp LBRC      &kp RBRC  &kp GT        &key_repeat &kp BSPC   &kp DEL    &kp TAB    &kp ESC 
                                       ___           ___       XXX           ___         ___        XXX 
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp UP DOWN>;
         };
  
         util_layer {
@@ -251,7 +248,6 @@ ZMK_BEHAVIOR(dot_morph_cancel, mod_morph,
             S_UNDO       S_CUT        S_COPY       S_PASTE     S_REDO             &key_repeat  &kp BSPC   &kp DEL   &kp TAB    &kp ESC 
                                       XXX          ___         ___                ___          ___        XXX 
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp UP DOWN>;
         };
 
         fun_layer {
@@ -261,7 +257,6 @@ ZMK_BEHAVIOR(dot_morph_cancel, mod_morph,
             ___       ___       ___        ___        ___    &kp F10  &kp F3     &kp F4  &kp F5  &kp CAPS
                                 ___        ___        ___    ___      ___        ___ 
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp UP DOWN>;
         };
     };
 };
