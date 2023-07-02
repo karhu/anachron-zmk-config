@@ -227,24 +227,24 @@ ZMK_BEHAVIOR(dot_morph_cancel, mod_morph,
             bindings = <
             &kp Q     &kp W     &kp F     &kp P     &kp B     &kp J       &kp L     &kp U        &kp Y      &kp APOS 
             H_LCTL(A) H_LALT(R) H_LGUI(S) H_LSFT(T) &kp G     &kp M       H_RSFT(N) H_RGUI(E)    H_RALT(I)  H_RCTL(O) 
-            &kp Z     &kp X     &kp C     &kp D     &kp V     &kp K       &kp H     &comma_morph &dot_morph &qmark_morph
-            PTAB                BACK       SMRT_NUM SK_SHFT   &spc_morph  SMRT_SYM  FWD                     NTAB 
+      PTAB  &kp Z     &kp X     &kp C     &kp D     &kp V     &kp K       &kp H     &comma_morph &dot_morph &qmark_morph  NTAB
+                                BACK       SMRT_NUM SK_SHFT   &spc_morph  SMRT_SYM  FWD
             >;
         };
         num_layer {
             bindings = <
             &swapper  &kp HASH  &kp DLLR   &kp PRCNT  &kp CARET   &kp PLUS  &kp N6     &kp N7     &kp N8     &kp ASTRK 
             SK(LCTL)   SK_LALT   SK_LGUI   SK(LSFT)   SMRT_FUN    &kp EQUAL H_RSFT(N0) H_RGUI(N1) H_RALT(N2) H_RCTL(N9) 
-            S_UNDO    S_CUT     S_COPY     S_PASTE    S_REDO      &kp MINUS &kp N3     &kp N4     &kp N5     &lt BT FSLH 
-            ___                 ___        ___        &kp SPACE   &kp SPACE ___        ___                   ___
+      ___  S_UNDO    S_CUT     S_COPY     S_PASTE    S_REDO      &kp MINUS &kp N3     &kp N4     &kp N5     &lt BT FSLH  ___
+                               ___        ___        &kp SPACE   &kp SPACE ___        ___
             >;
         };
         sym_layer {
             bindings = <
             &kp TILDE     &kp UNDER   &kp LBKT      &kp RBKT  &kp PIPE      &kp HOME    &kp PG_UP  &kp UP     &kp PG_DN  &kp END
             H_LCTL(GRAVE) H_LALT(AT)  H_LGUI(LPAR)  &kp RPAR  &kp AMPS      XXX         &kp LEFT   &kp DOWN   &kp RIGHT  &kp ENTER 
-            &kp BSLH      &kp LT      &kp LBRC      &kp RBRC  &kp GT        &key_repeat &kp BSPC   &kp DEL    &kp TAB    &kp ESC 
-            ___                       ___           ___       XXX           ___         ___        ___                   ___ 
+    ___     &kp BSLH      &kp LT      &kp LBRC      &kp RBRC  &kp GT        &key_repeat &kp BSPC   &kp DEL    &kp TAB    &kp ESC   ___
+                                         ___           ___       XXX           ___         ___        ___                   
             >;
         };
  
@@ -252,8 +252,8 @@ ZMK_BEHAVIOR(dot_morph_cancel, mod_morph,
             bindings = <
             &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_CLR  &dyn_macro RECORD  &kp HOME     &kp PG_UP  &kp UP    &kp PG_DN  &kp END
             SK(LCTL)      SK_LALT      SK_LGUI     SK(LSFT)    &dyn_macro PLAY    XXX          &kp LEFT   &kp DOWN  &kp RIGHT  &kp ENTER 
-            S_UNDO       S_CUT        S_COPY       S_PASTE     S_REDO             &key_repeat  &kp BSPC   &kp DEL   &kp TAB    &kp ESC 
-            ___                       ___          ___         ___                ___          ___        ___                  ___ 
+        ___ S_UNDO       S_CUT        S_COPY       S_PASTE     S_REDO             &key_repeat  &kp BSPC   &kp DEL   &kp TAB    &kp ESC   ___
+                                       ___          ___         ___                ___          ___        ___
             >;
         };
 
@@ -261,8 +261,8 @@ ZMK_BEHAVIOR(dot_morph_cancel, mod_morph,
             bindings = <
             ___       ___       ___        ___        ___    &kp F12  &kp F6     &kp F7  &kp F8  &kp C_VOL_UP
             SK(LCTL)   SK_LALT   SK_LGUI   SK(LSFT)   ___    &kp F11  &kp C_MUTE &kp F1  &kp F2  &kp F9
-            ___       ___       ___        ___        ___    &kp F10  &kp F3     &kp F4  &kp F5  &kp C_VOL_DN
-            ___                 ___        ___        ___    ___      ___        ___             ___
+      ___   ___       ___       ___        ___        ___    &kp F10  &kp F3     &kp F4  &kp F5  &kp C_VOL_DN   ___
+                                 ___        ___       ___    ___      ___        ___            
             >;
         };
     };
