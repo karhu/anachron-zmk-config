@@ -67,44 +67,27 @@ ZMK_BEHAVIOR(swapper, tri_state,
 ZMK_BEHAVIOR(dyn_macro, dynamic_macro, wait-ms = <10>;)
 
 /* ------------------------------ home row mods ----------------------------- */
-// #define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4  // left hand
-// #define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4  // right hand
-// #define THUMBS LH4 LH2 LH1 LH0 RH0 RH1 RH2 RH4                              // thumbs
+#define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4 LH4 // left hand
+#define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4 RH4 // right hand
+#define THUMBS LH2 LH1 LH0 RH0 RH1 RH2                             // thumbs
 
-// // 280, 150
-// #define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS, EXTRA) \
-//     ZMK_BEHAVIOR(NAME, hold_tap, \
-//         flavor = "balanced"; \
-//         tapping-term-ms = <500>; \
-//         quick-tap-ms = <175>; \
-//         global-quick-tap-ms = <150>; \
-//         bindings = <HOLD>, <TAP>; \
-//         hold-trigger-key-positions = <TRIGGER_POS>; \
-//         hold-trigger-on-release; \
-//         EXTRA \
-//     )
-// // TODO: potentially only space thumb
-// MAKE_HRM(hmlg, &kp, &kp, KEYS_R THUMBS, )  // left-hand HRMs
-// MAKE_HRM(hmrg, &kp, &kp, KEYS_L THUMBS, )  // right-hand HRMs
-// MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS, hold-while-undecided;)  // left-hand HRMs
-// MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS, hold-while-undecided;)  // right-hand HRMs
+#define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \
+    ZMK_BEHAVIOR(NAME, hold_tap, \
+        flavor = "balanced"; \
+        tapping-term-ms = <280>; \
+        quick-tap-ms = <QUICK_TAP_MS>; \
+        global-quick-tap-ms = <150>; \
+        bindings = <HOLD>, <TAP>; \
+        hold-trigger-key-positions = <TRIGGER_POS>; \
+        hold-trigger-on-release; \
+    )
+MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)  // left-hand HRMs
+MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
-#define H_LGUI(key) &kp key
-#define H_LALT(key) &kp key
-#define H_LCTL(key) &kp key
-#define H_LSFT(key) &kp key
-#define H_RSFT(key) &kp key
-#define H_RCTL(key) &kp key
-#define H_RALT(key) &kp key
-#define H_RGUI(key) &kp key
-// #define H_LGUI(key) &hmlg LGUI key 
-// #define H_LALT(key) &hmlg LALT key 
-// #define H_LCTL(key) &hml LCTL key
-// #define H_LSFT(key) &hml LSFT key
-// #define H_RSFT(key) &hmr RSFT key
-// #define H_RCTL(key) &hmr RCTL key
-// #define H_RALT(key) &hmrg RALT key
-// #define H_RGUI(key) &hmrg RGUI key
+// MAKE_HRM(hml_repeat, &kp, &key_repeat, KEYS_R THUMBS)  // used for HRM-combo
+// MAKE_HRM(hmr_lpar_lt, &kp, &lpar_lt, KEYS_L THUMBS)    // "    "   "   "
+// MAKE_HRM(hmr_rpar_gt, &kp, &rpar_gt, KEYS_L THUMBS)    // "    "   "   "
+
 
 /* --------------------------- sticky key behaviors -------------------------- */
 // global config
@@ -140,15 +123,15 @@ ZMK_BEHAVIOR(sk_mod, hold_tap,
     bindings = <&kp>, <&sk>; 
     hold-while-undecided; // requires pr
 )
-// for GUI/ALT, we don't want to trigger a tap, so we disable hold while undecided
-// TODO: revisit this as the standard SK(mod) may work fine for my use case
-#define SK_LGUI &sk_mod_gui LGUI LGUI 
-#define SK_LALT &sk_mod_gui LALT LALT 
-ZMK_BEHAVIOR(sk_mod_gui, hold_tap,
-    flavor = "balanced"; // balanced because we want to consider as tap when rolling
-    tapping-term-ms = <STICKY_TAP_MS>; 
-    bindings = <&kp>, <&sk>; 
-)
+/* // for GUI/ALT, we don't want to trigger a tap, so we disable hold while undecided */
+/* // TODO: revisit this as the standard SK(mod) may work fine for my use case */
+/* #define SK_LGUI &sk_mod_gui LGUI LGUI  */
+/* #define SK_LALT &sk_mod_gui LALT LALT  */
+/* ZMK_BEHAVIOR(sk_mod_gui, hold_tap, */
+/*     flavor = "balanced"; // balanced because we want to consider as tap when rolling */
+/*     tapping-term-ms = <STICKY_TAP_MS>;  */
+/*     bindings = <&kp>, <&sk>;  */
+/* ) */
 
 // tap: sticky-shift | hold: shift | shift + tap / double-tap: caps-word 
 #define SK_SHFT &sk_shft LSFT LSFT
@@ -225,25 +208,25 @@ ZMK_BEHAVIOR(dot_morph_cancel, mod_morph,
         compatible = "zmk,keymap";
         default_layer { // ColemakDHm
             bindings = <
-            &kp Q     &kp W     &kp F     &kp P     &kp B     &kp J       &kp L     &kp U        &kp Y      &kp APOS 
-            H_LCTL(A) H_LALT(R) H_LGUI(S) H_LSFT(T) &kp G     &kp M       H_RSFT(N) H_RGUI(E)    H_RALT(I)  H_RCTL(O) 
-      PTAB  &kp Z     &kp X     &kp C     &kp D     &kp V     &kp K       &kp H     &comma_morph &dot_morph &qmark_morph  NTAB
-                                BACK       SMRT_NUM SK_SHFT   &spc_morph  SMRT_SYM  FWD
+            &kp Q        &kp W        &kp F        &kp P        &kp B         &kp J       &kp L         &kp U         &kp Y         &kp APOS 
+            &hml LCTL A  &hml LALT R  &hml LGUI S  &hml LSFT T  &kp G         &kp M       &hmr RSFT N   &hmr RGUI E   &hmr LALT I   &hmr RCTL O
+      PTAB  &kp Z        &kp X        &kp C        &kp D        &kp V         &kp K       &kp H         &comma_morph  &dot_morph    &qmark_morph  NTAB
+                                      BACK         SMRT_NUM     SK_SHFT       &spc_morph  SMRT_SYM  FWD
             >;
         };
         num_layer {
             bindings = <
-            &swapper  &kp HASH  &kp DLLR   &kp PRCNT  &kp CARET   &kp PLUS  &kp N6     &kp N7     &kp N8     &kp ASTRK 
-            SK(LCTL)   SK_LALT   SK_LGUI   SK(LSFT)   SMRT_FUN    &kp EQUAL H_RSFT(N0) H_RGUI(N1) H_RALT(N2) H_RCTL(N9) 
-      ___  S_UNDO    S_CUT     S_COPY     S_PASTE    S_REDO      &kp MINUS &kp N3     &kp N4     &kp N5     &lt BT FSLH  ___
-                               ___        ___        &kp SPACE   &kp SPACE ___        ___
+            &swapper  &kp HASH   &kp DLLR   &kp PRCNT  &kp CARET              &kp PLUS    &kp N7        &kp N8        &kp N9        &kp ASTRK 
+            SK(LCTL)   SK(LALT)  SK(LGUI)   SK(LSFT)   SMRT_FUN               &kp EQUAL   &hmr RSFT N4  &hmr RGUI N5  &hmr LALT N6  &hmr RCTL N0
+      ___   S_UNDO    S_CUT     S_COPY     S_PASTE    S_REDO                  &kp MINUS   &kp N1        &kp N2        &kp N3        &lt BT FSLH  ___
+                               ___        ___        &kp SPACE                &kp SPACE   ___           &kp DOT
             >;
         };
         sym_layer {
             bindings = <
-            &kp TILDE     &kp UNDER   &kp LBKT      &kp RBKT  &kp PIPE      &kp HOME    &kp PG_UP  &kp UP     &kp PG_DN  &kp END
-            H_LCTL(GRAVE) H_LALT(AT)  H_LGUI(LPAR)  &kp RPAR  &kp AMPS      XXX         &kp LEFT   &kp DOWN   &kp RIGHT  &kp ENTER 
-    ___     &kp BSLH      &kp LT      &kp LBRC      &kp RBRC  &kp GT        &key_repeat &kp BSPC   &kp DEL    &kp TAB    &kp ESC   ___
+            &kp TILDE        &kp UNDER     &kp LBKT        &kp RBKT  &kp PIPE      &kp HOME    &kp PG_UP  &kp UP     &kp PG_DN  &kp END
+            &hml LCTL GRAVE  &hml LALT AT  &hml LGUI LPAR  &RPAR     &kp AMPS      XXX         &kp LEFT   &kp DOWN   &kp RIGHT  &kp ENTER 
+    ___     &kp BSLH         &kp LT        &kp LBRC        &kp RBRC  &kp GT        &key_repeat &kp BSPC   &kp DEL    &kp TAB    &kp ESC   ___
                                          ___           ___       XXX           ___         ___        ___                   
             >;
         };
@@ -251,7 +234,7 @@ ZMK_BEHAVIOR(dot_morph_cancel, mod_morph,
         util_layer {
             bindings = <
             &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_CLR  &dyn_macro RECORD  &kp HOME     &kp PG_UP  &kp UP    &kp PG_DN  &kp END
-            SK(LCTL)      SK_LALT      SK_LGUI     SK(LSFT)    &dyn_macro PLAY    XXX          &kp LEFT   &kp DOWN  &kp RIGHT  &kp ENTER 
+            SK(LCTL)      SK(LALT)    SK(LGUI)     SK(LSFT)    &dyn_macro PLAY    XXX          &kp LEFT   &kp DOWN  &kp RIGHT  &kp ENTER 
         ___ S_UNDO       S_CUT        S_COPY       S_PASTE     S_REDO             &key_repeat  &kp BSPC   &kp DEL   &kp TAB    &kp ESC   ___
                                        ___          ___         ___                ___          ___        ___
             >;
@@ -259,10 +242,10 @@ ZMK_BEHAVIOR(dot_morph_cancel, mod_morph,
 
         fun_layer {
             bindings = <
-            ___       ___       ___        ___        ___    &kp F12  &kp F6     &kp F7  &kp F8  &kp C_VOL_UP
-            SK(LCTL)   SK_LALT   SK_LGUI   SK(LSFT)   ___    &kp F11  &kp C_MUTE &kp F1  &kp F2  &kp F9
-      ___   ___       ___       ___        ___        ___    &kp F10  &kp F3     &kp F4  &kp F5  &kp C_VOL_DN   ___
-                                 ___        ___       ___    ___      ___        ___            
+            ___        ___        ___        ___        ___              &kp F12  &kp F6     &kp F7  &kp F8  &kp C_VOL_UP
+            SK(LCTL)   SK(LALT)   SK(LGUI)   SK(LSFT)   ___              &kp F11  &kp C_MUTE &kp F1  &kp F2  &kp F9
+      ___   ___        ___        ___        ___        ___              &kp F10  &kp F3     &kp F4  &kp F5  &kp C_VOL_DN   ___
+                                  ___        ___        ___              ___      ___        ___            
             >;
         };
     };
@@ -411,8 +394,8 @@ NUM_THUMB_COMBO(LT2, &kp DLLR)
 NUM_THUMB_COMBO(LT1, &kp PRCNT)
 NUM_THUMB_COMBO(LT0, &kp CARET)
 NUM_THUMB_COMBO(LM4, SK(LCTL))
-NUM_THUMB_COMBO(LM3, SK_LALT)
-NUM_THUMB_COMBO(LM2, SK_LGUI)
+NUM_THUMB_COMBO(LM3, SK(LALT))
+NUM_THUMB_COMBO(LM2, SK(LGUI))
 NUM_THUMB_COMBO(LM1, SK(LSFT))
 NUM_THUMB_COMBO(LM0, SMRT_FUN)
 NUM_THUMB_COMBO(LB4, S_UNDO)
@@ -424,20 +407,21 @@ NUM_THUMB_COMBO(LB0, S_REDO)
 // left thumb combos with right hand NUM layer
 #define NUM_THUMB_CROSS_COMBO(keypos, bindings) THUMB_LAYER_COMBO(NUM, LH1, BASE, keypos, bindings)
 NUM_THUMB_CROSS_COMBO(RT0, &kp PLUS)
-NUM_THUMB_CROSS_COMBO(RT1, &kp N6)
-NUM_THUMB_CROSS_COMBO(RT2, &kp N7)
-NUM_THUMB_CROSS_COMBO(RT3, &kp N8)
+NUM_THUMB_CROSS_COMBO(RT1, &kp N7)
+NUM_THUMB_CROSS_COMBO(RT2, &kp N8)
+NUM_THUMB_CROSS_COMBO(RT3, &kp N9)
 NUM_THUMB_CROSS_COMBO(RT4, &kp ASTRK)
 NUM_THUMB_CROSS_COMBO(RM0, &kp EQUAL)
-NUM_THUMB_CROSS_COMBO(RM1, &kp N0)
-NUM_THUMB_CROSS_COMBO(RM2, &kp N1)
-NUM_THUMB_CROSS_COMBO(RM3, &kp N2)
-NUM_THUMB_CROSS_COMBO(RM4, &kp N9)
+NUM_THUMB_CROSS_COMBO(RM1, &kp N4)
+NUM_THUMB_CROSS_COMBO(RM2, &kp N5)
+NUM_THUMB_CROSS_COMBO(RM3, &kp N6)
+NUM_THUMB_CROSS_COMBO(RM4, &kp N0)
 NUM_THUMB_CROSS_COMBO(RB0, &kp MINUS)
-NUM_THUMB_CROSS_COMBO(RB1, &kp N3)
-NUM_THUMB_CROSS_COMBO(RB2, &kp N4)
-NUM_THUMB_CROSS_COMBO(RB3, &kp N5)
+NUM_THUMB_CROSS_COMBO(RB1, &kp N1)
+NUM_THUMB_CROSS_COMBO(RB2, &kp N2)
+NUM_THUMB_CROSS_COMBO(RB3, &kp N3)
 NUM_THUMB_CROSS_COMBO(RB4, &kp SLASH)
+NUM_THUMB_CROSS_COMBO(RH4, &kp DOT)
 
 // left thumb combos with both hands BASE layer
 #define SHFT_THUMB_COMBO(keypos, bindings) THUMB_COMBO_GENERAL(&kp, LSFT, LH0, BASE, keypos, bindings)
