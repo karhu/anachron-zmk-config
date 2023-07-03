@@ -225,7 +225,7 @@ ZMK_BEHAVIOR(dot_morph_cancel, mod_morph,
         sym_layer {
             bindings = <
             &kp TILDE        &kp UNDER     &kp LBKT        &kp RBKT  &kp PIPE      &kp HOME    &kp PG_UP  &kp UP     &kp PG_DN  &kp END
-            &hml LCTL GRAVE  &hml LALT AT  &hml LGUI LPAR  &RPAR     &kp AMPS      XXX         &kp LEFT   &kp DOWN   &kp RIGHT  &kp ENTER 
+            &hml LCTL GRAVE  &hml LALT AT  &hml LGUI LPAR  &kp RPAR  &kp AMPS      XXX         &kp LEFT   &kp DOWN   &kp RIGHT  &kp ENTER 
     ___     &kp BSLH         &kp LT        &kp LBRC        &kp RBRC  &kp GT        &key_repeat &kp BSPC   &kp DEL    &kp TAB    &kp ESC   ___
                                          ___           ___       XXX           ___         ___        ___                   
             >;
