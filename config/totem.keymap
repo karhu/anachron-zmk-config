@@ -153,15 +153,28 @@ ZMK_BEHAVIOR(smrt_layer, hold_tap,
 ) 
 
 // tap: sticky-num | hold: num | double-tap: num-word | triple-tap: num-lock
-#define SMRT_NUM &smrt_num NUM NUM
-ZMK_BEHAVIOR(smrt_num, hold_tap,
-    flavor = "hold-preferred"; 
-    tapping-term-ms = <STICKY_TAP_MS>; 
-    bindings = <&mo>, <&num_dance>; 
-) 
+/* #define SMRT_NUM &smrt_num NUM NUM */
+/* ZMK_BEHAVIOR(smrt_num, hold_tap, */
+/*     flavor = "hold-preferred";  */
+/*     tapping-term-ms = <STICKY_TAP_MS>;  */
+/*     bindings = <&mo>, <&num_dance>;  */
+/* )  */
+/* ZMK_BEHAVIOR(num_dance, tap_dance, */
+/*     tapping-term-ms = <300>;  */
+/*     bindings = <&sl NUM>, <&num_word>, <&tog NUM>; // todo: to or tog? */
+/* ) */
+
+// tap: num-word | double-tap: sticky num-layer | hold: num-layer
+#define SMART_NUM &smart_num NUM 0
+ZMK_BEHAVIOR(smart_num, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&mo>, <&num_dance>;
+)
 ZMK_BEHAVIOR(num_dance, tap_dance,
-    tapping-term-ms = <300>; 
-    bindings = <&sl NUM>, <&num_word>, <&tog NUM>; // todo: to or tog?
+    tapping-term-ms = <200>;
+    bindings = <&num_word>, <&sl NUM>;  // reverse this for sticky-num on single tap
 )
 
 /* ------------------------------- mod-morphs ------------------------------- */
@@ -259,23 +272,23 @@ ZMK_BEHAVIOR(dot_morph_cancel, mod_morph,
 // use global-quick-tap-ms for combos (requires PR 1387)
 
 #undef COMBO_HOOK
-#define COMBO_HOOK global-quick-tap-ms = <100>;
+#define COMBO_HOOK global-quick-tap-ms = <75>;
 // combos on every layer
 #define LAYER_COMBO(name, keypos, bindings, layer) ZMK_COMBO(name, bindings, keypos, layer, 50)
 #define GLOBAL_COMBO(name, keypos, bindings) LAYER_COMBO(name, keypos, bindings, ALL)
 // GLOBAL_COMBO(bksp, RB1 RB2, &kp BSPC)
 // GLOBAL_COMBO(del, RB2 RB3, &kp DEL)
-GLOBAL_COMBO(numl, RB3 RB4, &num_word)
+// GLOBAL_COMBO(numl, RB3 RB4, &num_word)
 GLOBAL_COMBO(dot_spc, LH0 RH0, &dot_spc)
-//GLOBAL_COMBO(esc, RB1 RB2, &kp ESC)
+GLOBAL_COMBO(esc, RM1 RM3, &kp ESC)
+GLOBAL_COMBO(tab, LM3 LM1, &kp TAB)
 
 // combos on the numpad
 #define NUM_COMBO(name, keypos, bindings) ZMK_COMBO(name, bindings, keypos, NUM, 40)
+NUM_COMBO(zero, RB0 RB1, &kp N0)
 NUM_COMBO(dot, RM0 RM1, &kp DOT)
-NUM_COMBO(esc, LT3 LT2, &kp ESC)
-NUM_COMBO(tab, LT2 LT1, &kp TAB)
-NUM_COMBO(gui, LB3 LB2, &kp LGUI)
-NUM_COMBO(ent, LB2 LB1, &kp ENTER)
+// NUM_COMBO(tab, LT2 LT1, &kp TAB)
+NUM_COMBO(ent, LM3 LM1, &kp ENTER)
 NUM_COMBO(lpar, LT2 LM2, &kp LPAR)
 NUM_COMBO(rpar, LT1 LM1, &kp RPAR)
 NUM_COMBO(x, LM3 LB3, &kp X)
