@@ -138,7 +138,6 @@ ZMK_BEHAVIOR(sk_shft, hold_tap,
     tapping-term-ms = <STICKY_TAP_MS>; 
     bindings = <&kp>, <&smrt_shft_morph>; 
     hold-while-undecided;
-    ignore-modifiers;
 ) 
 ZMK_BEHAVIOR(smrt_shft_morph, mod_morph,
     mods = <(MOD_LSFT)>; // shift + tap: caps word
@@ -159,7 +158,6 @@ ZMK_BEHAVIOR(smrt_layer, hold_tap,
 #define SMRT_NUM &smrt_num NUM NUM
 ZMK_BEHAVIOR(smrt_num, hold_tap,
     flavor = "hold-preferred"; 
-   // ignore-modifiers;
     tapping-term-ms = <STICKY_TAP_MS>; 
     bindings = <&mo>, <&num_dance>; 
 ) 
