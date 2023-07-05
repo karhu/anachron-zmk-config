@@ -38,10 +38,6 @@
     /delete-property/ ignore-numbers;
     continue-list = <BACKSPACE ENTER DELETE UNDERSCORE MINUS>;
 };
-&num_word { 
-    layers = <NUM>; // requires PR #1441
-    continue-list = <RSFT RGUI LALT RCTL BACKSPACE ENTER DELETE UNDERSCORE MINUS PLUS ASTRK EQUAL FSLH DOT LPAR RPAR HASH DLLR PRCNT CARET LEFT RIGHT UP DOWN>;
-};
 
 // key-repeat config
 &key_repeat {
@@ -165,7 +161,7 @@ ZMK_BEHAVIOR(smrt_layer, hold_tap,
 /* ) */
 
 // tap: num-word | double-tap: sticky num-layer | hold: num-layer
-#define SMART_NUM &smart_num NUM 0
+#define SMRT_NUM &smart_num NUM 0
 ZMK_BEHAVIOR(smart_num, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <200>;
@@ -176,6 +172,10 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
     tapping-term-ms = <200>;
     bindings = <&num_word>, <&sl NUM>;  // reverse this for sticky-num on single tap
 )
+&num_word {  // num-word, requires PR #1451
+    layers = <NUM>;
+    continue-list = <RSFT RGUI LALT RCTL BACKSPACE ENTER DELETE UNDERSCORE MINUS PLUS ASTRK EQUAL FSLH DOT LPAR RPAR HASH DLLR PRCNT CARET LEFT RIGHT UP DOWN>;
+};
 
 /* ------------------------------- mod-morphs ------------------------------- */
 // tap: comma | shift + tap: semicolon 
