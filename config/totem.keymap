@@ -104,7 +104,7 @@ ZMK_BEHAVIOR(sk_no_lazy, sticky_key, // sticky-key without lazy
     release-after-ms = <500>;  // release after timeout
     // This is useful for enabling a layer and then pressing a bunch of sticky keys without leaving the layer. 
     // However, this breaks tapping sl+control+key because it does not exit the layer.
-    // ignore-modifiers;
+    ignore-modifiers;
 };
 
 // all sticky keys are sticky when tapped, but momentary when held. 
@@ -217,7 +217,7 @@ ZMK_BEHAVIOR(dot_morph_cancel, mod_morph,
             bindings = <
             &swapper  &kp HASH   &kp DLLR   &kp PRCNT  &kp CARET              &kp PLUS    &kp N7        &kp N8        &kp N9        &kp ASTRK 
             SK(LCTL)   SK(LALT)  SK(LGUI)   SK(LSFT)   SMRT_FUN               &kp EQUAL   &hmr RSFT N4  &hmr RGUI N5  &hmr LALT N6  &hmr RCTL N0
-   LA(N3)   S_UNDO    S_CUT     S_COPY     S_PASTE    S_REDO                  &kp MINUS   &kp N1        &kp N2        &kp N3        &lt BT FSLH  &caps_word
+   ___      S_UNDO    S_CUT     S_COPY     S_PASTE    S_REDO                  &kp MINUS   &kp N1        &kp N2        &kp N3        &lt BT FSLH  &caps_word
                                ___        ___        &kp SPACE                &kp SPACE   ___           &kp DOT
             >;
         };
@@ -261,7 +261,7 @@ ZMK_BEHAVIOR(dot_morph_cancel, mod_morph,
 // use global-quick-tap-ms for combos (requires PR 1387)
 
 #undef COMBO_HOOK
-#define COMBO_HOOK global-quick-tap-ms = <75>;
+#define COMBO_HOOK global-quick-tap-ms = <50>;
 // combos on every layer
 #define LAYER_COMBO(name, keypos, bindings, layer) ZMK_COMBO(name, bindings, keypos, layer, 50)
 #define GLOBAL_COMBO(name, keypos, bindings) LAYER_COMBO(name, keypos, bindings, ALL)
@@ -269,7 +269,7 @@ ZMK_BEHAVIOR(dot_morph_cancel, mod_morph,
 // GLOBAL_COMBO(del, RB2 RB3, &kp DEL)
 GLOBAL_COMBO(numl, RB3 RB4, &num_word)
 GLOBAL_COMBO(dot_spc, LH0 RH0, &dot_spc)
-GLOBAL_COMBO(esc, RB1 RB2, &kp ESC)
+//GLOBAL_COMBO(esc, RB1 RB2, &kp ESC)
 
 // combos on the numpad
 #define NUM_COMBO(name, keypos, bindings) ZMK_COMBO(name, bindings, keypos, NUM, 40)
