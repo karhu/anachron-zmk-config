@@ -40,7 +40,7 @@
 };
 &num_word { 
     layers = <NUM>; // requires PR #1441
-    continue-list = <BACKSPACE ENTER DELETE UNDERSCORE MINUS PLUS ASTRK EQUAL FSLH DOT LPAR RPAR HASH DLLR PRCNT CARET LEFT RIGHT UP DOWN>;
+    continue-list = <RSFT RGUI LALT RCTL BACKSPACE ENTER DELETE UNDERSCORE MINUS PLUS ASTRK EQUAL FSLH DOT LPAR RPAR HASH DLLR PRCNT CARET LEFT RIGHT UP DOWN>;
 };
 
 // key-repeat config
@@ -131,7 +131,6 @@ ZMK_BEHAVIOR(sk_mod, hold_tap,
 /* ) */
 
 // tap: sticky-shift | hold: shift | shift + tap / double-tap: caps-word 
-// TODO: try to fix this so that tapping any HR key doesn't toggle caps word off
 #define SK_SHFT &sk_shft LSFT LSFT
 ZMK_BEHAVIOR(sk_shft, hold_tap,
     flavor = "balanced"; 
@@ -154,7 +153,6 @@ ZMK_BEHAVIOR(smrt_layer, hold_tap,
 ) 
 
 // tap: sticky-num | hold: num | double-tap: num-word | triple-tap: num-lock
-// TODO: same here to fix for HR mods
 #define SMRT_NUM &smrt_num NUM NUM
 ZMK_BEHAVIOR(smrt_num, hold_tap,
     flavor = "hold-preferred"; 
@@ -261,7 +259,7 @@ ZMK_BEHAVIOR(dot_morph_cancel, mod_morph,
 // use global-quick-tap-ms for combos (requires PR 1387)
 
 #undef COMBO_HOOK
-#define COMBO_HOOK global-quick-tap-ms = <50>;
+#define COMBO_HOOK global-quick-tap-ms = <100>;
 // combos on every layer
 #define LAYER_COMBO(name, keypos, bindings, layer) ZMK_COMBO(name, bindings, keypos, layer, 50)
 #define GLOBAL_COMBO(name, keypos, bindings) LAYER_COMBO(name, keypos, bindings, ALL)
