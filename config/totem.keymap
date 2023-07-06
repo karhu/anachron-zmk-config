@@ -31,6 +31,11 @@
 #define PTAB &kp LS(LG(LBKT))
 #define NTAB &kp LS(LG(RBKT))
 
+// hyper and meh keys
+#define HYP LS(LC(LA(LGUI)))
+#define MEH LS(LC(LA))
+
+
 /* ------------------------ general config ----------------------- */
 // smart-layer config
 &caps_word {  
@@ -207,16 +212,16 @@ ZMK_BEHAVIOR(dot_morph_cancel, mod_morph,
             bindings = <
             &kp Q        &kp W        &kp F        &kp P        &kp B         &kp J       &kp L         &kp U         &kp Y         &kp APOS 
             &hml LCTL A  &hml LALT R  &hml LGUI S  &hml LSFT T  &kp G         &kp M       &hmr RSFT N   &hmr RGUI E   &hmr LALT I   &hmr RCTL O
-      PTAB  &kp Z        &kp X        &kp C        &kp D        &kp V         &kp K       &kp H         &comma_morph  &dot_morph    &qmark_morph  NTAB
+      PTAB  &kp Z        &kp X        &kp C        &hml HYP D   &kp V         &kp K       &hmr HYP H    &comma_morph  &dot_morph    &qmark_morph  NTAB
                                       BACK         SMRT_NUM     SK_SHFT       &spc_morph  SMRT_SYM  FWD
             >;
         };
         num_layer {
             bindings = <
-            &swapper  &kp HASH   &kp DLLR   &kp PRCNT  &kp CARET              &kp PLUS    &kp N7        &kp N8        &kp N9        &kp ASTRK 
-            SK(LCTL)   SK(LALT)  SK(LGUI)   SK(LSFT)   SMRT_FUN               &kp N0      &hmr RSFT N4  &hmr RGUI N5  &hmr LALT N6  &hmr RCTL EQUAL
-   ___      S_UNDO    S_CUT     S_COPY     S_PASTE    S_REDO                  &kp MINUS   &kp N1        &kp N2        &kp N3        &kp FSLH        ___
-                               ___        ___        &kp SPACE                &kp SPACE   ___           &kp DOT
+            &swapper  &kp HASH   &kp DLLR   &kp PRCNT           &kp CARET              &kp PLUS    &kp N7        &kp N8        &kp N9        &kp ASTRK 
+            SK(LCTL)   SK(LALT)  SK(LGUI)   SK(LSFT)           SMRT_FUN                &kp N0      &hmr RSFT N4  &hmr RGUI N5  &hmr LALT N6  &hmr RCTL EQUAL
+   ___      S_UNDO    S_CUT     S_COPY     &hml HYP S_PASTE    S_REDO                  &kp MINUS   &kp N1        &kp N2        &kp N3        &kp FSLH        ___
+                                         ___        ___        &kp SPACE               &kp SPACE   ___           &kp DOT
             >;
         };
         sym_layer {
@@ -272,7 +277,7 @@ GLOBAL_COMBO(tab, LM3 LM1, &kp TAB)
 
 // combos on the numpad
 #define NUM_COMBO(name, keypos, bindings) ZMK_COMBO(name, bindings, keypos, NUM, 40)
-NUM_COMBO(zero, RB0 RB1, &kp N0)
+NUM_COMBO(zero, RM1 RM2, &kp N0)
 NUM_COMBO(dot, RM0 RM1, &kp DOT)
 // NUM_COMBO(tab, LT2 LT1, &kp TAB)
 NUM_COMBO(ent, LB3 LB1, &kp ENTER)
@@ -305,10 +310,9 @@ NUM_COMBO(rpar, LT1 LM1, &kp RPAR)
     };
 
 // disambiguate mashing SFBs
-// this is the only one relevant to Colemak layout
 /* VERTICAL_COMBO(LT3 LM3, R, L) */
 /* VERTICAL_COMBO(LT1 LM1, W, S) */
-VERTICAL_COMBO(LM2 LB2, S, C)
+/* VERTICAL_COMBO(LM2 LB2, S, C) */
 /* VERTICAL_COMBO(LM1 LM0, G, S) */
 /* VERTICAL_COMBO(RM1 RM0, H, Y) */
 /* VERTICAL_COMBO(RM1 RB1, P, H) */
