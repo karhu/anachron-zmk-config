@@ -71,9 +71,9 @@ ZMK_BEHAVIOR(dyn_macro, dynamic_macro, wait-ms = <10>;)
 #define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS, EXTRA) \
     ZMK_BEHAVIOR(NAME, hold_tap, \
         flavor = "balanced"; \
-        tapping-term-ms = <280>; \
+        tapping-term-ms = <500>; \
         quick-tap-ms = <175>; \
-        global-quick-tap-ms = <150>; \
+        global-quick-tap-ms = <210>; \
         bindings = <HOLD>, <TAP>; \
         hold-trigger-key-positions = <TRIGGER_POS>; \
         hold-trigger-on-release; \
@@ -147,18 +147,6 @@ ZMK_BEHAVIOR(smrt_layer, hold_tap,
     tapping-term-ms = <STICKY_TAP_MS>; 
     bindings = <&mo>, <&sl>; 
 ) 
-
-// tap: sticky-num | hold: num | double-tap: num-word | triple-tap: num-lock
-/* #define SMRT_NUM &smrt_num NUM NUM */
-/* ZMK_BEHAVIOR(smrt_num, hold_tap, */
-/*     flavor = "hold-preferred";  */
-/*     tapping-term-ms = <STICKY_TAP_MS>;  */
-/*     bindings = <&mo>, <&num_dance>;  */
-/* )  */
-/* ZMK_BEHAVIOR(num_dance, tap_dance, */
-/*     tapping-term-ms = <300>;  */
-/*     bindings = <&sl NUM>, <&num_word>, <&tog NUM>; // todo: to or tog? */
-/* ) */
 
 // tap: num-word | double-tap: sticky num-layer | hold: num-layer
 #define SMRT_NUM &smrt_num NUM 0
@@ -287,10 +275,9 @@ GLOBAL_COMBO(tab, LM3 LM1, &kp TAB)
 NUM_COMBO(zero, RB0 RB1, &kp N0)
 NUM_COMBO(dot, RM0 RM1, &kp DOT)
 // NUM_COMBO(tab, LT2 LT1, &kp TAB)
-NUM_COMBO(ent, LM3 LM1, &kp ENTER)
+NUM_COMBO(ent, LB3 LB1, &kp ENTER)
 NUM_COMBO(lpar, LT2 LM2, &kp LPAR)
 NUM_COMBO(rpar, LT1 LM1, &kp RPAR)
-NUM_COMBO(x, LM3 LB3, &kp X)
 
 // vertical sfb combos
 #define VERTICAL_COMBO(keypos, key1, key2) \
@@ -422,11 +409,11 @@ NUM_THUMB_CROSS_COMBO(RT1, &kp N7)
 NUM_THUMB_CROSS_COMBO(RT2, &kp N8)
 NUM_THUMB_CROSS_COMBO(RT3, &kp N9)
 NUM_THUMB_CROSS_COMBO(RT4, &kp ASTRK)
-NUM_THUMB_CROSS_COMBO(RM0, &kp EQUAL)
+NUM_THUMB_CROSS_COMBO(RM0, &kp N0)
 NUM_THUMB_CROSS_COMBO(RM1, &kp N4)
 NUM_THUMB_CROSS_COMBO(RM2, &kp N5)
 NUM_THUMB_CROSS_COMBO(RM3, &kp N6)
-NUM_THUMB_CROSS_COMBO(RM4, &kp N0)
+NUM_THUMB_CROSS_COMBO(RM4, &kp EQUAL)
 NUM_THUMB_CROSS_COMBO(RB0, &kp MINUS)
 NUM_THUMB_CROSS_COMBO(RB1, &kp N1)
 NUM_THUMB_CROSS_COMBO(RB2, &kp N2)
