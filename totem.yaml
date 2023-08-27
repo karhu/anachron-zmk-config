@@ -1,0 +1,69 @@
+layout:
+    ortho_layout:
+        split: true
+        rows: 3
+        columns: 5
+        thumbs: 3
+        drop_pinky: false
+        drop_inner: false
+layers:
+    base:
+    - [q, w, f, p, b, j, l, u, y, {t: "'", s: '"'}]
+    - [{t: "a", h: ctl}, {t: "r", h: alt}, {t: "s", h: cmd}, {t: "t", h: sft}, g, m, {t: "n", h: sft}, {t: "e", h: cmd}, {t: "i", h: alt}, {t: "o", h: ctl}]
+    - [z, x, c, d, v, k, h, {t: ",", s: ";"}, {t: ".", s: ":"}, {t: "?", s: "!"}]
+    - back
+    - numwd
+    - shift
+    - space
+    - sym
+    - fwd
+    num:
+    - [swp, '#', '$', '%', '^', '+', 7, 8, 9, '*']
+    - [ctl, alt, cmd, sft, fn, 0, 4, 5, 6, '=']
+    - [undo, cut, copy, paste, redo, '-', 1, 2, 3, '/']
+    - ['', {t: '', type: held}, 'shift', 'space', 'sym', '.']
+    sym:
+    - ['~', '_', '[', ']', '|', home, pgup, up, pgdn, end]
+    - ['`', '@', '(', ')', '&', '', left, down, right, enter]
+    - ['\', '<', '{', '}', '>', rep, bsp, del, tab, esc ]
+    - ['',  'numwd', 'shift', 'space', {t: '', type: held}, '']
+    util:
+    - [B0, B1, B2, CL, rec, home, pgup, up, pgdn, end]
+    - [ctl, alt, cmd, sft, play, '', left, down, right, enter]
+    - [undo, cut, copy, paste, redo, rep, bsp, del, tab, esc ]
+    - ['', {t: '', type: held}, '', 'space', {t: '', type: held}, '']
+combos:
+-   p: [11, 13]
+    k: tab
+    l: [base]
+    a: top
+-   p: [16, 18]
+    k: esc
+    l: [base]
+    a: top
+-   p: [32, 33]
+    k: d.sft
+    l: [base]
+    a: bottom
+-   p: [26, 27]
+    k: bsp
+    l: [base]
+-   p: [27, 28]
+    k: del
+    l: [base]
+-   p: [2, 12]
+    k: '('
+    l: [num]
+-   p: [3, 13]
+    k: ')'
+    l: [num]
+-   p: [15, 16]
+    k: '.'
+    l: [num]
+-   p: [16, 17]
+    k: '0'
+    l: [num]
+-   p: [21, 23]
+    k: ent
+    l: [num]
+    a: bottom
