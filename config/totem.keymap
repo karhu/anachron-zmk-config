@@ -119,7 +119,6 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS, hold-while-undecided;)  // right-hand HRM
                                       &kp LPAR     &kp RPAR   &kp UNDER          XXX       XXX                   XXX                   
             >;
         };
-
         fun_layer {
             bindings = <
             &kp F12  &kp F7     &kp F8     &kp F9       XXX                     XXX       XXX                   XXX               XXX       XXX
@@ -148,5 +147,3 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS, hold-while-undecided;)  // right-hand HRM
    ╰───────╮ 32  33  34 │ 35  36  37 ╭───────╯     ╰───────╮ LH2 LH1 LH0 │ RH0 RH1 RH2 ╭───────╯
            ╰────────────┴────────────╯                     ╰─────────────┴─────────────╯             */
 // use global-quick-tap-ms for combos (requires PR 1387)
-
-
