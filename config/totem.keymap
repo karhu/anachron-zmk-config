@@ -8,7 +8,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/dynamic-macros.h>
 
-#define ___ &none
+#define XXX &none
 #define TODO ___
 #define ___ &trans
 
@@ -91,7 +91,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS, hold-while-undecided;)  // right-hand HRM
             bindings = <
             &kp Q        &kp W        &kp F           &kp P           &kp B              &kp J         &kp L             &kp U           &kp Y         &kp APOS 
             &hml LCTL A  &hml LALT R  &hml LGUI S     &hml LSFT T     &kp G              &kp M         &hmr RSFT N       &hmr RGUI E     &hmr LALT I   &hmr RCTL O
-    PTAB    &kp Z        &kp X        &hml MEH C      &hml HYP D      &kp V              &kp K         &hmr HYP H        &hmr MEH COMMA  &kp DOT       &kp FSLH        NTAB
+    ___     &kp Z        &kp X        &hml MEH C      &hml HYP D      &kp V              &kp K         &hmr HYP H        &hmr MEH COMMA  &kp DOT       &kp FSLH        ___
                                       &lt UTIL ESC    &lt NAV SPACE   &kp TAB            &lt SYM RET   &lt NUM BSPC      &lt FUN DEL
             >;
         };
