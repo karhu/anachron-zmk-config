@@ -89,50 +89,50 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS, hold-while-undecided;)  // right-hand HRM
         compatible = "zmk,keymap";
         default_layer { // ColemakDHm
             bindings = <
-            &kp Q        &kp W        &kp F           &kp P              &kp B              &kp J         &kp L             &kp U           &kp Y         &kp APOS 
-            &hml LCTL A  &hml LALT R  &hml LGUI S     &hml LSFT T        &kp G              &kp M         &hmr RSFT N       &hmr RGUI E     &hmr LALT I   &hmr RCTL O
-      PTAB  &kp Z        &kp X        &kp C           &hml HYP D         &kp V              &kp K         &hmr HYP H        &kp COMMA       &kp DOT       &kp FSLH      NTAB
-                                      &lt UTIL ESC    &lt NAV SPACE      &kp TAB            &lt SYM RET   &lt NUM BSPC      &lt FUN DEL
+            &kp Q        &kp W        &kp F           &kp P           &kp B              &kp J         &kp L             &kp U           &kp Y         &kp APOS 
+            &hml LCTL A  &hml LALT R  &hml LGUI S     &hml LSFT T     &kp G              &kp M         &hmr RSFT N       &hmr RGUI E     &hmr LALT I   &hmr RCTL O
+    PTAB    &kp Z        &kp X        &hml MEH C      &hml HYP D      &kp V              &kp K         &hmr HYP H        &hmr MEH COMMA  &kp DOT       &kp FSLH        NTAB
+                                      &lt UTIL ESC    &lt NAV SPACE   &kp TAB            &lt SYM RET   &lt NUM BSPC      &lt FUN DEL
             >;
         };
         nav_layer { 
             bindings = <
-            ___          ___          ___                ___                    ___                ___          &kp HOME      &kp UP      &kp END      &kp PAGE_UP 
-            &kp LCTL     &kp LALT     &kp LGUI           &kp LSFT               ___                &caps_word   &kp LEFT      &kp DOWN    &kp RIGHT    &kp PAGE_DOWN
-      ___   ___          ___          &kp LS(LC(LALT))   &kp LS(LC(LA(LGUI)))                      S_REDO       S_PASTE       S_COPY      S_CUT        S_UNDO          ___
-                                      &lt UTIL ESC       ___                    ___                &kp RET      &kp BSPC      &kp DEL
+            ___          ___          ___             ___             ___                ___           &kp HOME          &kp UP          &kp END       &kp PAGE_UP 
+            &kp LCTL     &kp LALT     &kp LGUI        &kp LSFT        ___                &caps_word    &kp LEFT          &kp DOWN        &kp RIGHT     &kp PAGE_DOWN
+    ___     ___          ___          &kp MEH         &kp HYP         ___                S_REDO        S_PASTE           S_COPY          S_CUT         S_UNDO          ___
+                                      &lt UTIL ESC    ___             ___                &kp RET       &kp BSPC          &kp DEL
             >;
         }; 
         num_layer {
             bindings = <
-            &kp LBKT    &kp N7   &kp N8   &kp  N9     &kp RBKT                    ___       ___                   ___               ___       ___ 
-            &kp SEMI    &kp N4   &kp N5   &kp  N6     &kp EQUAL                   ___       &kp LSHFT             &kp LGUI          &kp LALT  &kp LCTRL
-   ___      &kp GRAVE   &kp N1   &kp N2   &kp  N3     &kp BSLH                    ___       &kp LS(LC(LA(LGUI)))  &kp LS(LC(LALT))  ___       ___      ___
-                                 &kp DOT  &kp  N0     &kp MINUS                   ___       ___                   ___
+            &kp LBKT     &kp N7       &kp N8          &kp  N9         &kp RBKT           ___           ___               ___             ___           ___ 
+            &kp SEMI     &kp N4       &kp N5          &kp  N6         &kp EQUAL          ___           &kp LSHFT         &kp LGUI        &kp LALT      &kp LCTRL
+    ___     &kp GRAVE    &kp N1       &kp N2          &kp  N3         &kp BSLH           ___           &kp HYP           &kp MEH         ___           ___             ___
+                                      &kp DOT         &kp  N0         &kp MINUS          ___           ___               ___
             >;
         };
         sym_layer {
             bindings = <
-            &kp LBRC     &kp AMPS     &kp STAR     &kp LPAR   &kp RBRC           ___       ___                   ___               ___       ___
-            &kp COLON    &kp DOLLAR   &kp PERCENT  &kp CARET  &kp PLUS           ___       &kp LSHFT             &kp LGUI          &kp LALT  &kp LCTRL 
-    ___     &kp TILDE    &kp EXCL     &kp AT       &kp HASH   &kp PIPE           ___       &kp LS(LC(LA(LGUI)))  &kp LS(LC(LALT))  ___       ___      ___
-                                      &kp LPAR     &kp RPAR   &kp UNDER          ___       ___                   ___                   
+            &kp LBRC     &kp AMPS     &kp STAR        &kp LPAR        &kp RBRC           ___           ___               ___             ___           ___
+            &kp COLON    &kp DOLLAR   &kp PERCENT     &kp CARET       &kp PLUS           ___           &kp LSHFT         &kp LGUI        &kp LALT      &kp LCTRL 
+    ___     &kp TILDE    &kp EXCL     &kp AT          &kp HASH        &kp PIPE           ___           &kp HYP           &kp MEH         ___           ___             ___
+                                      &kp LPAR        &kp RPAR        &kp UNDER          ___           ___               ___                   
             >;
         };
         fun_layer {
             bindings = <
-            &kp F12  &kp F7     &kp F8     &kp F9       ___                     ___       ___                   ___               ___       ___
-            &kp F11  &kp F4     &kp F5     &kp F6       ___                     ___       &kp LSHFT             &kp LGUI          &kp LALT  &kp LCTRL 
-      ___   &kp F10  &kp F1     &kp F2     &kp F3       ___                     ___       &kp LS(LC(LA(LGUI)))  &kp LS(LC(LALT))  ___       ___      ___
-                                ___        &kp SPACE    &kp TAB                 ___       ___                   ___
+            &kp F12      &kp F7       &kp F8          &kp F9          ___                ___           ___               ___             ___           ___
+            &kp F11      &kp F4       &kp F5          &kp F6          ___                ___           &kp LSHFT         &kp LGUI        &kp LALT      &kp LCTRL 
+    ___     &kp F10      &kp F1       &kp F2          &kp F3          ___                ___           &kp HYP           &kp MEH         ___           ___             ___
+                                      ___             ___             ___                ___           ___               ___
             >;
         };
         util_layer {
             bindings = <
-            &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_CLR   ___                 ___    ___   &kp C_VOL_UP   ___     ___
-            &hml LCTL A  &hml LALT R  &hml LGUI S  &hml LSFT T  ___                 ___    ___   &kp C_VOL_DN   ___     ___ 
-        ___ ___          ___          ___          ___          ___                 ___    ___   ___            ___     ___   ___
-                                      ___          ___          ___                 ___    ___   &kp C_MUTE
+            &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2    &bt BT_CLR      ___                ___           ___               &kp C_VOL_UP    ___           ___
+            &kp LCTL     &kp LALT     &kp LGUI        &kp LSFT        ___                ___           ___               &kp C_VOL_DN    ___           ___ 
+    ___     ___          ___          ___             ___             ___                ___           ___               ___             ___           ___             ___
+                                      ___             ___             ___                ___           ___               &kp C_MUTE
             >;
         };  
     };
